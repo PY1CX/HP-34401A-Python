@@ -1,10 +1,9 @@
 import DMM_34401a as dmm
-print("Init")
-#Init the DMM with the Serial port
-dmm.DMM_init()
-dmm.DMM_close()
-#if dmm.DMM_ID_CHECK == 1:
-#    dmm.conf_SET_VOLT_DC_AUTO()
+import time
 
-#dmm.__close__()
-    #print dmm.DMM_read()
+#Init the DMM with the Serial port
+dmm0 = dmm.DMM_init("/dev/ttyUSB0")
+print(dmm.DMM_read(dmm0))
+dmm.DMM_close(dmm0)
+
+
