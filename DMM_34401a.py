@@ -9,7 +9,8 @@ def DMM_init(port_number):
                         parity = serial.PARITY_NONE,
                         stopbits = serial.STOPBITS_TWO,
                         bytesize = serial.EIGHTBITS,
-                        xonxoff=True)
+                        dsrdtr=True)
+                        #xonxoff=True
     time.sleep(0.5)
     if ser.isOpen() == True:
         ser.write("SYSTem:REMote\n".encode())
@@ -56,7 +57,7 @@ configs
 def conf_SET_VOLT_DC_AUTO(self):
     self.write("CONF:VOLT:DC AUTO\n".encode())
     
-#Voltage AC - Range AUTO
+#Voltage AC - Range AUTO 
 def conf_SET_VOLT_AC_AUTO(self):
     self.write("CONF:VOLT:AC AUTO\n".encode())   
 
