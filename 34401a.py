@@ -3,13 +3,12 @@ from serial import serial
 class DMM34401a:
     """ 34401a Driver Class """
     def __init__(self): 
-        ser = serial.Serial(port = /dev/ttyUSB0,
+        ser = serial.Serial(port = "/dev/ttyUSB0",
                             baudrate = 9600,
                             parity = serial.PARITY_NONE,
                             stopbits = serial.STOPBITS_TWO,
-                            bytesize = serial.EIGHTBITS
-                            )
-                            ser.isOpen()
+                            bytesize = serial.EIGHTBITS)
+        ser.isOpen()
 
     """
     ATTENTION:

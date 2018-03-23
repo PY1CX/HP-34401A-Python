@@ -48,8 +48,9 @@ READ?
 READ?
 +1.02095000E-04
 
-Let it stay away without any command for almost 10min, had to SYSTem:REMote it again
-READ?
+PS: Let it stay away without any command for almost 10min, had to SYSTem:REMote it again
+
+READ? #didn't got a response, maybe a nice feature to have in the driver?
 SYSTem:REMote
 SYSTem:REMote
 READ?
