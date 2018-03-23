@@ -3,21 +3,21 @@ import time
 
 """ 34401a Driver Class """
 
-def __init__(self, port_number): 
-    self.ser = serial.Serial(port = port_number,
+def DMM_init(self): 
+    ser = serial.Serial(port = "/dev/ttyUSB0",
                         baudrate = 9600,
                         parity = serial.PARITY_NONE,
                         stopbits = serial.STOPBITS_TWO,
                         bytesize = serial.EIGHTBITS,
                         xonxoff=True)
-    self.ser.isOpen()
+    ser.isOpen()
     time.sleep(0.5)
-    self.ser.write("SYSTem:REMote".encode())
+    ser.write("SYSTem:REMote".encode())
     print("Serial open") 
-    self.close()
+    
 
-def __close__(self):
-    self.ser.close()
+def DMM_close(self):
+    ser.close()
     print("Serial Closed")
 
 """
