@@ -10,6 +10,8 @@ Got it working, but still need to finish the driver!
 
 ### Output from READ? command
 Output from READ? command is a scientific notation.
+
 I still doesn't know if DMM_read will return a normalized string or if maybe I add a specific function for also a raw output.
+
 Output example: +1.00010310E+01 (10.00103v)
 
