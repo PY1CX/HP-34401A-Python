@@ -68,4 +68,4 @@ the 34401a
 """
 def DMM_read(self):
     self.write("READ?\n".encode())
-    return self.read()
+    return self.readline()
