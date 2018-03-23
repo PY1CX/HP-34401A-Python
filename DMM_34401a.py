@@ -9,7 +9,7 @@ def DMM_init(port_number):
                         parity = serial.PARITY_NONE,
                         stopbits = serial.STOPBITS_TWO,
                         bytesize = serial.EIGHTBITS,
-                        dsrdtr=True)
+                        xonxoff=True)
                         #xonxoff=True
     time.sleep(0.5)
     if ser.isOpen() == True:

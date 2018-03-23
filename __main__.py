@@ -3,14 +3,9 @@ import time
 
 #Init the DMM with the Serial port
 dmm0 = dmm.DMM_init("/dev/ttyUSB0")
-time.sleep(1)
-print(dmm.DMM_read(dmm0))
-time.sleep(1)
-print(dmm.DMM_read(dmm0))
-time.sleep(1)
-print(dmm.DMM_read(dmm0))
-time.sleep(1)
-print(dmm.DMM_read(dmm0))
-dmm.DMM_close(dmm0)
+while True:
+    time.sleep(2)
+    print(dmm.DMM_read(dmm0))
+
 
 
