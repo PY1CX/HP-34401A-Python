@@ -24,15 +24,16 @@ Them you init your multimeter and store a handler, like the next line, the handl
 
 Now you wanna read something from your multimeter, you got two options:
 
-```DMM_float(handler) ```
-```DMM_float(handler) ```
+* ```DMM_read_float(handler) ``` In this one you will get a float number like 10.0010310
+* ```DMM_read_raw(handler) ``` In this one you will get the raw output from the multimeter it's usually something like: +1.00010310E+01
 
-## Output from READ? command
-The raw output from READ? command is a scientific notation.
-
-I implemented two functions so you can choose between raw reading or a float value.
-* RAW OUTPUT  : +1.00010310E+01
-* FLOAT OUTPUT: 10.0010310
+## Example of usage:
+```
+import DMM_34401a as dmm
+dmm0 = dmm.init("/dev/ttyUSB0")
+print(dmm.DMM_read_float(dmm0))
+```
+In the example above you will get a reading from the actual function set on the multimeter, so you need to set it before using the script. You should really prefer using the float version of the read, as it's protected with a REGEX, and it's impossible to get trash saved into your data (if you're going to use the 34401a to log something)
 
 ## Tricks with the HP 34401a serial comm
 1. I spent a lot of time testing the serial port with the HP 34401a. Sometime this script will not work, go into the menu in your 34401a and set the baudrate again! 
