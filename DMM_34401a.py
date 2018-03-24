@@ -72,9 +72,8 @@ def DMM_read(self):
     return self.readline()
 
 """
-Make it beautiful
-This function converts the DMM_read value in scientific notation
-to a value in mV, mA, kV, etc.
+The following function gets a read from the 34401a, check if it's
+valid via REGEX and return the value in float to the program
 Instead of getting: +1.00010310E+01
 You get: 10.00103v
 """
@@ -83,5 +82,6 @@ def DMM_convert_scientific(self):
     result = self.readline()
     regex = re.compile('[+-][0-9][.][0-9]*[Ee][+-][0-9][0-9]')
     if re.findall(regex, result) >= 1:
-            return result(float(result))
-
+            return float(result)
+    else:
+        return False
