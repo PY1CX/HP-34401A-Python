@@ -1,5 +1,6 @@
 import serial
 import time
+import re
 
 """ 34401a Driver Class """
 
@@ -69,3 +70,18 @@ the 34401a
 def DMM_read(self):
     self.write("READ?\n".encode())
     return self.readline()
+
+"""
+Make it beautiful
+This function converts the DMM_read value in scientific notation
+to a value in mV, mA, kV, etc.
+Instead of getting: +1.00010310E+01
+You get: 10.00103v
+"""
+def DMM_convert_scientific(self):
+    self.write("READ?\n".encode())
+    result = self.readline()
+    regex = re.compile('[+-][0-9][.][0-9]*[Ee][+-][0-9][0-9]')
+    if re.findall(regex, result) >= 1:
+            return result(float(result))
+
