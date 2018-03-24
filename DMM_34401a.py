@@ -67,7 +67,7 @@ This function asks the DMM to send a single read
 with the current configuration programmed into 
 the 34401a
 """
-def DMM_read(self):
+def DMM_read_raw(self):
     self.write("READ?\n".encode())
     return self.readline()
 
@@ -77,7 +77,7 @@ valid via REGEX and return the value in float to the program
 Instead of getting: +1.00010310E+01
 You get: 10.00103v
 """
-def DMM_convert_scientific(self):
+def DMM_read_float(self):
     self.write("READ?\n".encode())
     result = self.readline()
     regex = re.compile('[+-][0-9][.][0-9]*[Ee][+-][0-9][0-9]')
