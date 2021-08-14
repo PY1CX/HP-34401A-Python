@@ -81,7 +81,7 @@ def DMM_read_float(self):
     self.write("READ?\n".encode())
     result = self.readline().decode()
     regex = re.compile('[+-][0-9][.][0-9]*[Ee][+-][0-9][0-9]')
-    if re.findall(regex, result) >= 1:
+    if re.search(regex, result):
             return float(result)
     else:
         return False
