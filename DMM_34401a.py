@@ -35,15 +35,15 @@ accepting serial commands
 def DMM_ID(self):
     print("Arrived here")
     self.write("*IDN?\n".encode())
-    print(self.readline().encode())
+    print(self.readline().decode())
     
 """
 Check if the connected DMM is the 34401A
 """
 def DMM_ID_CHECK(self):
     self.write("*IDN?\n".encode())
-    s = self.readline()
-    if s.find("34401A") == 1:
+    s = self.readline().decode()
+    if "34401A" in s:
         return 1
     else:
         return 0
@@ -79,7 +79,7 @@ You get: 10.00103v
 """
 def DMM_read_float(self):
     self.write("READ?\n".encode())
-    result = self.readline()
+    result = self.readline().decode()
     regex = re.compile('[+-][0-9][.][0-9]*[Ee][+-][0-9][0-9]')
     if re.findall(regex, result) >= 1:
             return float(result)
